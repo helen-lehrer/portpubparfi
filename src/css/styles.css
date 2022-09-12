@@ -1,31 +1,62 @@
-body{
+.background{
+  padding: 0px;
 	background-color: #F4CD9E;
+  height: 200vh;
 }
 
-.topbar{
+.blue-stripe{
 	background-color: #CEF3F8;
-	margin-top: 100px;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	margin-bottom: 40px;
+	width: inherit;
+	height: 210px;
+  left: 0px;
+  top: 18%;
+  position: relative;
+	z-index: 1;
+	text-align: center;
+	padding: 15px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
-.top1{
-	padding-left: 40%;
-	padding-right: 42%;
-	padding-top: 30px;
-	text-align: center;
+.search-result {
+  margin-top: 40%;
+  position: relative;
+  z-index: 2;
 }
 
-.top2{
-	text-align: center;
+h3 {
+	font-family: "Jacques Francois";
+}
+
+.btn{
+  color: aliceblue;
+  font-size: 0.7rem;
+  padding: 5px;
+	background-color: rgb(37, 37, 37);
+	border-radius: 3px;
+  margin-top: 1.5%;
+	padding-top: .5%;
+	padding-bottom: .5%;
 	padding-left: 3%;
-	padding-right: 5%;
+	padding-right: 3%;
 }
 
-.top3{
-	text-align: center;
-	padding-left: 8%;
-	padding-right: 12%;
-	padding-bottom: 30px;
+.btn:hover {
+	color: #ebaa5a;  
+}
+
+#tulip {
+	width: 22px;
+	margin:5px;
+}
+
+input[type=text] {
+	border: 0px;
+	background-color: #F4CD9E;
+  background-image: url('./../assets/images/search.png');
+  background-size: 17px 17px;
+  background-position: 10px 4px;
+  background-repeat: no-repeat;
+  padding-left: 35px;
 }

@@ -2,25 +2,29 @@
 <html>
 	<head>
 		<title>Portland Public Party Finder</title>
+		<meta charset="utf-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jacques Francois">
 	</head>
 	<body>
-		<div class="topbar">
-			<div class="top1">
-				<h1>FLOWER</h1>
-			</div>
-			<div class="top2">
+		<div class="container background">
+			<div class="blue-stripe">
+				<img src="./assets/images/tulip.png" id="tulip">
 				<h3>Portland Public Party Finder</h3>
-			</div>
-			<div class="top3">
-				<form>
-					<label for="tweet-search">Type search keyword here:</label>
-					<input type="text" name="tweet-search" id="tweet-search">
+				<form id="search-submit">
+					<label for="tweet-search">What type of party are you looking for?</label><br>
+					<input type="text" name="tweet-search" id="tweet-search" placeholder="Search..."><br>
+					<button type="submit" class="btn" id="tweet-btn">Go!</button>
 				</form>
 			</div>
-		</div>
-		<div class="result-contain">
-			<div class="search-result">
-				<p>result here</p>
+			<div class="search-result" id="search-result-twt">
+				<div class="row">
+					<div class="col-4">Twitter Column
+					</div>
+					<div class="col-4">EventBrite Column
+					</div>
+					<div class="col-4">Facebook Column
+					</div>
+				</div>
 			</div>
 		</div>
 	</body>
