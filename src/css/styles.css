@@ -14,16 +14,16 @@
 	z-index: 1;
 	text-align: center;
 	padding: 15px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
+
 }
 
 .search-result {
-  margin-top: 30%;
+  margin-top: 350px;
   padding-top: 10px;
+  /* left: 0px;
+  top: 25%; */
   position: relative;
-  z-index: 2;
+  z-index: 2; 
 	text-align: center;
 }
 
@@ -55,7 +55,7 @@ h3 {
 input[type=text] {
 	border: 0px;
 	background-color: #F4CD9E;
-  background-image: url('./../assets/images/search.png');
+  background-image: url('./../assets/img/search.png');
   background-size: 17px 17px;
   background-position: 10px 4px;
   background-repeat: no-repeat;

@@ -14,25 +14,32 @@ const formSubmit = (event) => {
   const resultsForTwitter = document.getElementById("search-result-twitter");
   const twitterHeading = document.createElement("h3");
   twitterHeading.innerText = null;
+  resultsForTwitter.innerText = null;
   const twitterLogo = document.createElement("img");
-  twitterLogo.setAttribute("src", "./assets/images/twitter.png");
+  twitterLogo.setAttribute("src", "./assets/img/twitter.png");
   resultsForTwitter.append(twitterLogo);
   twitterHeading.append(`You are searching Twitter for ${searchKeyword}.`);
   resultsForTwitter.append(twitterHeading);
 
   // Search result for EventBrite
   const resultsForEventBrite = document.getElementById("search-result-eventB");
-  resultsForEventBrite.innerText = null;
   const evntBriteHeading = document.createElement("h3");
-  resultsForEventBrite.append(evntBriteHeading);
+  resultsForEventBrite.innerText = null;
+  const eventBLogo = document.createElement("img");
+  eventBLogo.setAttribute("src", "./assets/img/eventbrite.png");
+  resultsForEventBrite.append(eventBLogo);
   evntBriteHeading.append(`You are searching EventBrite for ${searchKeyword}.`);
+  resultsForEventBrite.append(evntBriteHeading);
 
   // Search result for Facebook
   const resultsForFacebook = document.getElementById("search-result-facebook");
-  resultsForFacebook.innerText = null;
   const facebookHeading = document.createElement("h3");
-  resultsForFacebook.append(facebookHeading);
+  resultsForFacebook.innerText = null;
+  const facebookLogo = document.createElement("img");
+  facebookLogo.setAttribute("src", "./assets/img/facebook.png");
+  resultsForFacebook.append(facebookLogo);
   facebookHeading.append(`You are searching Facebook for ${searchKeyword}.`);
+  resultsForFacebook.append(facebookHeading);
 
   /*window.scrollTo({
     top: 435,
