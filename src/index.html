@@ -11,8 +11,15 @@
 				<img src="./assets/img/tulip.png" id="tulip">
 				<h3>Portland Public Party Finder</h3>
 				<form id="search-submit">
-					<label for="tweet-search">What type of party are you looking for?</label><br>
-					<input type="text" name="tweet-search" id="tweet-search" placeholder="Search..."><br>
+					<label for="cat-select">What type of party are you looking for?</label><br>
+					<select name="cat-select" id="cat-select">
+						<option selected>--Choose a Category--</option>
+						<option value="music">Music</option>
+						<option value="hiking">Hiking</option>
+						<option value="food">Food</option>
+						<option value="misc">Misc.</option>
+					</select>
+					<br>
 					<button type="submit" class="btn" id="tweet-btn">Go!</button>
 				</form>
 			</div>
@@ -27,10 +34,10 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="hidden">
+		<div class="hidden">
 			<img src="./assets/img/facebook.png" alt="facebook logo">
 			<img src="./assets/img/eventbrite.png" alt="eventbrite logo">
 			<img src="./assets/img/twitter.png" alt="twitter logo">
-		</div> -->
+		</div>
 	</body>
 </html>

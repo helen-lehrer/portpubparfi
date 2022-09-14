@@ -4,7 +4,7 @@ import './css/styles.css';
 
 const formSubmit = (event) => {
   event.preventDefault();
-  const searchKeyword = document.getElementById("tweet-search").value;
+  let catSelect = document.getElementById("cat-select").value;
   const searchResultSocial = document.getElementById("search-result-social");
   searchResultSocial.removeAttribute("class", "hidden");
   //This method is Element.scrollIntoView()
@@ -18,7 +18,7 @@ const formSubmit = (event) => {
   const twitterLogo = document.createElement("img");
   twitterLogo.setAttribute("src", "./assets/img/twitter.png");
   resultsForTwitter.append(twitterLogo);
-  twitterHeading.append(`You are searching Twitter for ${searchKeyword}.`);
+  twitterHeading.append(`You are searching Twitter for ${catSelect}.`);
   resultsForTwitter.append(twitterHeading);
 
   // Search result for EventBrite
@@ -28,7 +28,7 @@ const formSubmit = (event) => {
   const eventBLogo = document.createElement("img");
   eventBLogo.setAttribute("src", "./assets/img/eventbrite.png");
   resultsForEventBrite.append(eventBLogo);
-  evntBriteHeading.append(`You are searching EventBrite for ${searchKeyword}.`);
+  evntBriteHeading.append(`You are searching EventBrite for ${catSelect}.`);
   resultsForEventBrite.append(evntBriteHeading);
 
   // Search result for Facebook
@@ -38,7 +38,7 @@ const formSubmit = (event) => {
   const facebookLogo = document.createElement("img");
   facebookLogo.setAttribute("src", "./assets/img/facebook.png");
   resultsForFacebook.append(facebookLogo);
-  facebookHeading.append(`You are searching Facebook for ${searchKeyword}.`);
+  facebookHeading.append(`You are searching Facebook for ${catSelect}.`);
   resultsForFacebook.append(facebookHeading);
 
   /*window.scrollTo({
@@ -47,6 +47,7 @@ const formSubmit = (event) => {
     behavior: "smooth"
   });
   */
+  /*catSelect.style.fontStyle = "italic";*/
   document.getElementById("search-submit").reset();
 };
 

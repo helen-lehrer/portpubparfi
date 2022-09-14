@@ -52,16 +52,22 @@ h3 {
 	margin:5px;
 }
 
-input[type=text] {
+select {
 	border: 0px;
 	background-color: #F4CD9E;
-  background-image: url('./../assets/img/search.png');
+  /*background-image: url('./../assets/img/search.png');
   background-size: 17px 17px;
   background-position: 10px 4px;
   background-repeat: no-repeat;
-  padding-left: 35px;
+  */
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .hidden {
   display:none;
+}
+
+.search-result img {
+  padding-bottom: 5%;
 }
