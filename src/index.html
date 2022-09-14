@@ -4,12 +4,18 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Test Twitter Response</h1>
+  <h1>Test Response</h1>
   <p>Click button to get JSON Response</p>
   <form>
-    <label for="search">Search</label>
-    <input id="search" for="search">
-    <button type="submit" class="button">Response</button>
+    <select id="userSelect">
+      <option>business</option>
+      <option>travel</option>
+      <option>bar-crawl</option>
+      <option>house-party</option>
+      <option>performance</option>
+      <option>outdoor</option>
+    </select>
+    <button type="submit" class="button">get event</button>
     <br>
     <p id="result"></p>
   </form>
