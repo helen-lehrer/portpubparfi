@@ -6,26 +6,6 @@ import Eventbrite from './eventbrite-api.js';
 
 // Business Logic
 
-// async function getTweets() {
-//   let promise = Twitter.getTweets();
-//   promise.then(function(response) {
-//     printTweets(response);
-//     console.log(response);
-//   }, function(errorArray) {
-//     printError(errorArray);
-//   });
-// }
-
-//ID's for Events
-//377136153387 - Travel
-//417060217337 - Business
-//381936210487 - Health
-//366457352807 - Bar Crawl
-//415156011807 - House Party
-//336054075787 - Performance
-//416986607167 - Outdoor
-
-
 async function getEvents(eventInput) {
   let promise = Eventbrite.getEvents(eventInput);
   promise.then(function(response) {
@@ -35,14 +15,13 @@ async function getEvents(eventInput) {
   });
 }
 
-
 // UI Logic
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const resDisp = document.getElementById("res-disp");
+  const resDisp = document.getElementById("search-result-eventB");
   resDisp.innerHTML = null
-  const userSearch = document.getElementById('userSelect').value;
+  const userSearch = document.getElementById('cat-select').value;
   if(userSearch.includes('travel')) {
     getEvents(399000068947);
   } else if (userSearch.includes('business')){
@@ -64,9 +43,8 @@ function handleFormSubmission(event) {
 }
 
 function printEvents(response) {
-  const resDisp = document.getElementById("res-disp");
+  const resDisp = document.getElementById("search-result-eventB");
   const div1 = document.createElement('div');
-  // div1.setAttribute('class', 'displayresult');
   const h2 = document.createElement("h2");
   const p1 = document.createElement("p");
   const a = document.createElement("a");
@@ -90,27 +68,12 @@ function printEvents(response) {
   a.append(`Find on Eventbrite`);
 }
 
-
 function printError(response) {
   const div2 = document.createElement('div');
   div2.setAttribute('class', 'displayresult');
   const error = response;
   div2.append(error);
 }
-
-// function printTweets(response) {
-//   for (let i = 0 ; i < response.data.length ; i++){
-//     const resDisp = document.getElementById("res-disp");
-//     const div1 = document.createElement('div');
-//     div1.setAttribute('class', 'displayresult');
-//     const p = document.createElement("p");
-//     const tweet = response.data[i].text;
-//     resDisp.append(div1);
-//     div1.append(p);
-//     p.append(tweet);
-//   }
-// }
-
 
 window.addEventListener("load", function(){
   document.querySelector('form').addEventListener('submit', handleFormSubmission);
