@@ -2,6 +2,7 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import Eventbrite from './eventbrite-api.js';
+import Localevents from './localevents-api.js';
 
 // Business Logic
 
@@ -13,6 +14,18 @@ async function getEvents(eventInput) {
     printError(errorArray);
   });
 }
+
+async function getLocalEvents() {
+  let promise = Localevents.getLocalEvents();
+  promise.then(function(response) {
+    console.log(response);
+    printLocal(response);
+  }, function(error) {
+    printError(error)
+  })
+}
+
+
 
 // UI Logic
 
@@ -85,6 +98,29 @@ const formSubmit = (event) => {
   */
   /*catSelect.style.fontStyle = "italic";*/
 };
+
+function printLocal(response) {
+  const divResult = document.getElementById('result1');
+  let i = 0;
+  let date = new Date();
+  for (i = 0; i<response[0].results.length; i++) {
+  divResult.append('Event Name: ' + response[0].results[i].title + '\n');
+
+  if (!response[0].results[i].entities[0]) {
+    divResult.append('The address is not listed.' + '\n'); 
+  } else {
+    divResult.append('Location: ' + response[0].results[i].entities[0].name + '\n');
+  }
+
+  if (!response[0].results[i].start) {
+    divResult.append('The event time is not listed' + '\n\n'); 
+  } else {
+    divResult.append( 'Start Time: ' + (response[0].results[i].start) + '\n\n');
+  }
+
+  }
+}
+
 
 function printEvents(response) {
   const resDisp = document.getElementById("search-result-eventB");
