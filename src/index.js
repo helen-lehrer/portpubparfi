@@ -15,8 +15,8 @@ async function getEvents(eventInput) {
   });
 }
 
-async function getLocalEvents() {
-  let promise = Localevents.getLocalEvents();
+async function getLocalEvents(category) {
+  let promise = Localevents.getLocalEvents(category);
   promise.then(function(response) {
     console.log(response);
     printLocal(response);
@@ -37,20 +37,22 @@ const formSubmit = (event) => {
   //This method is Element.scrollIntoView()
   searchResultSocial.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
 
-  // Search result for twitter
-  const resultsForTwitter = document.getElementById("search-result-twitter");
-  const twitterHeading = document.createElement("h3");
-  twitterHeading.innerText = null;
-  resultsForTwitter.innerText = null;
-  const twitterLogo = document.createElement("img");
-  twitterLogo.setAttribute("src", "./assets/img/twitter.png");
-  resultsForTwitter.append(twitterLogo);
-  twitterHeading.append(`You are searching Twitter for ${catSelect}.`);
-  resultsForTwitter.append(twitterHeading);
+  // Search results for PredictHQ
+  const predictDisplay = document.getElementById("search-result-local");
+  predictDisplay.innerHTML = null;
+  const categoryObj = document.querySelectorAll("input[name='predict-option']:checked");
+  const categoryArray = Array.from(categoryObj);
+  let category = [];
+  for (let i=0; i < categoryArray.length; i++)
+  {
+    category.push(categoryArray[i].value);
+  }
+  let stringCat = category.join();
+  getLocalEvents(stringCat);
 
   // Search result for EventBrite
   const resDisp = document.getElementById("search-result-eventB");
-  resDisp.innerHTML = null
+  resDisp.innerHTML = null;
   const userSearch = document.getElementById('cat-select').value;
   if(userSearch.includes('travel')) {
     getEvents(399000068947);
@@ -100,9 +102,20 @@ const formSubmit = (event) => {
 };
 
 function printLocal(response) {
-  const divResult = document.getElementById('result1');
+  const divResult = document.getElementById('search-result-local');
+  const h3p = document.createElement("h3");
+  const categoryObj = document.querySelectorAll("input[name='predict-option']:checked");
+  const categoryArray = Array.from(categoryObj);
+  let category = [];
+  for (let i=0; i < categoryArray.length; i++)
+  {
+    category.push(categoryArray[i].value);
+  }
+  let stringCat = category.join();
+  h3p.append(`You are searching PredictHQ for ${stringCat}.`);
+  divResult.append(h3p);
   let i = 0;
-  let date = new Date();
+  //let date = new Date();a
   for (i = 0; i<response[0].results.length; i++) {
   divResult.append('Event Name: ' + response[0].results[i].title + '\n');
 
@@ -115,7 +128,14 @@ function printLocal(response) {
   if (!response[0].results[i].start) {
     divResult.append('The event time is not listed' + '\n\n'); 
   } else {
-    divResult.append( 'Start Time: ' + (response[0].results[i].start) + '\n\n');
+    const startDate = response[0].results[i].start
+    // const startMonth = startDate.getUTCMonth();
+    // const startDay = startDate.getUTCDay();
+    // const startYear = startDate.getUTCYear();
+    // const startTime = startDate.getUTCHours() + ":" + startDate.getUTCMinutes();
+    // console.log(`${startMonth} ${startDay}, ${startYear} @ ${startTime}`)
+    //divResult.append( 'Start Time: ' + date(startDate) + '\n\n');
+    //divResult.append( 'Start Time: ' + (response[0].results[i].start) + '\n\n');
   }
 
   }
@@ -137,7 +157,6 @@ function printEvents(response) {
   const h3 = document.createElement("h3");
   
   eventBriteLogo.setAttribute("src", "./assets/img/eventbrite.png");
-  
   img.setAttribute("src", image);
   img.setAttribute("width", "100%");
   resDisp.append(eventBriteLogo);
