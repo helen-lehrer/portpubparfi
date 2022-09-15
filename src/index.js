@@ -73,15 +73,6 @@ const formSubmit = (event) => {
     return errorMessage;
   }
 
-  // const resultsForEventBrite = document.getElementById("search-result-eventB");
-  // const evntBriteHeading = document.createElement("h3");
-  // resultsForEventBrite.innerText = null;
-  // const eventBLogo = document.createElement("img");
-  // eventBLogo.setAttribute("src", "./assets/img/eventbrite.png");
-  // resultsForEventBrite.append(eventBLogo);
-  // evntBriteHeading.append(`You are searching EventBrite for ${catSelect}.`);
-  // resultsForEventBrite.append(evntBriteHeading);
-
   // Search result for Facebook
   const resultsForFacebook = document.getElementById("search-result-facebook");
   const facebookHeading = document.createElement("h3");
@@ -92,13 +83,6 @@ const formSubmit = (event) => {
   facebookHeading.append(`You are searching Facebook for ${catSelect}.`);
   resultsForFacebook.append(facebookHeading);
 
-  /*window.scrollTo({
-    top: 435,
-    left: 0,
-    behavior: "smooth"
-  });
-  */
-  /*catSelect.style.fontStyle = "italic";*/
 };
 
 function printLocal(response) {
@@ -115,32 +99,23 @@ function printLocal(response) {
   h3p.append(`You are searching PredictHQ for ${stringCat}.`);
   divResult.append(h3p);
   let i = 0;
-  //let date = new Date();a
   for (i = 0; i<response[0].results.length; i++) {
-  divResult.append('Event Name: ' + response[0].results[i].title + '\n');
+    divResult.append('Event Name: ' + response[0].results[i].title + '\n');
 
-  if (!response[0].results[i].entities[0]) {
-    divResult.append('The address is not listed.' + '\n'); 
-  } else {
-    divResult.append('Location: ' + response[0].results[i].entities[0].name + '\n');
-  }
+    if (!response[0].results[i].entities[0]) {
+      divResult.append('The address is not listed.' + '\n'); 
+    } else {
+      divResult.append('Location: ' + response[0].results[i].entities[0].name + '\n');
+    }
 
-  if (!response[0].results[i].start) {
-    divResult.append('The event time is not listed' + '\n\n'); 
-  } else {
-    const startDate = response[0].results[i].start
-    // const startMonth = startDate.getUTCMonth();
-    // const startDay = startDate.getUTCDay();
-    // const startYear = startDate.getUTCYear();
-    // const startTime = startDate.getUTCHours() + ":" + startDate.getUTCMinutes();
-    // console.log(`${startMonth} ${startDay}, ${startYear} @ ${startTime}`)
-    //divResult.append( 'Start Time: ' + date(startDate) + '\n\n');
-    //divResult.append( 'Start Time: ' + (response[0].results[i].start) + '\n\n');
-  }
-
+    if (!response[0].results[i].start) {
+      divResult.append('The event time is not listed' + '\n\n'); 
+    } else {
+      const startDate = response[0].results[i].start;
+      divResult.append(`Start time: ${startDate}` + '\n\n');
+    }
   }
 }
-
 
 function printEvents(response) {
   const resDisp = document.getElementById("search-result-eventB");
