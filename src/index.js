@@ -84,7 +84,6 @@ const formSubmit = (event) => {
   });
   */
   /*catSelect.style.fontStyle = "italic";*/
-  document.getElementById("search-submit").reset();
 };
 
 function printEvents(response) {
@@ -94,15 +93,22 @@ function printEvents(response) {
   const p1 = document.createElement("p");
   const a = document.createElement("a");
   const img = document.createElement("img");
+  const eventBriteLogo = document.createElement("img");
   const image = response[0].logo.original.url;
   const eventName = response[0].name.text;
   const eventText = response[0].description.text;
   const eventUrl = response[0].url;
-
+  const h3 = document.createElement("h3");
+  
+  eventBriteLogo.setAttribute("src", "./assets/img/eventbrite.png");
+  
   img.setAttribute("src", image);
-  img.setAttribute("width", "600px")
-  img.setAttribute("height", "300px")
-  resDisp.append(div1);
+  img.setAttribute("width", "100%");
+  resDisp.append(eventBriteLogo);
+  eventBriteLogo.after(h3);
+  h3.append(`You are searching EventBrite for ${document.getElementById("cat-select").value}.`);
+  document.getElementById("search-submit").reset();
+  h3.after(div1);
   div1.append(h2);
   h2.append(eventName);
   h2.after(img);
@@ -111,14 +117,14 @@ function printEvents(response) {
   p1.after(a);
   a.setAttribute("href", eventUrl);
   a.append(`Find on Eventbrite`);
-};
+}
 
 function printError(response) {
   const div2 = document.createElement('div');
   div2.setAttribute('class', 'displayresult');
   const error = response;
   div2.append(error);
-};
+}
 
 window.addEventListener("load", function () {
   document.getElementById("search-submit").addEventListener("submit", formSubmit);
