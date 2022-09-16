@@ -8,11 +8,12 @@
 
 ## Description
 
+A web application that searches the EventBrite API and the PredictHQ API for local events happening in the Portland area by category. The purpose of this project was to explore using social media APIs. 
+
 
 ## Features
 
-* Converts 9 different currencies amongst one another
-* Calls upon an API
+* Uses a form to call upon PredictHQ ro return the top 10 most popular events in a category and call upon the EventBrite API to pull 1 EventBrite event per category.
 
 
 ## Technologies Used
@@ -28,7 +29,7 @@
 	* Babel
 	* Jest
 
-* Calls upon the Twitter API v2
+* Calls upon the PredictHQ and EventBrite APIs
 
 * Tested in the following browsers:
 	* Google Chrome (v.104.0)
@@ -39,7 +40,7 @@
 * Download [Git Bash](https://git-scm.com/downloads)
 * Input the following into Git Bash to clone this repository onto your computer:
 
-		>git clone https://github.com/nalundquist/portpubparfi
+		>git clone https://github.com/helen-lehrer/portpubparfi
 
 * Enter the cloned project folder "portpubparfi" and type:
 
@@ -51,18 +52,29 @@
 
 * To host the site on your machine at localhost:8080.
 
-Currency Twitter API functionality will *not* be available until you do the following:
+The API functionalities will *not* be available until you do the following:
 
-* Make an account on 
-* Apply for an API key.  The free tier will suffice for 500,000 tweet queries per month.
+* Create free accounts on the [EventBrite](https://www.eventbrite.com/platform) and [PredictHQ](https://signup.predicthq.com/) APIs. 
+* Apply for free API keys.
 * Create a .env file in the root of the "portpubparfi" folder
-* Open the .env file in VS Code or the editor of your choice and put "API_KEY=[your api key here]"
-
-Once the above is done the API key will automatically be used in pulling the calculations from ExchangeRate-API.
+* Open the .env file in VS Code or the editor of your choice
+*  You will need to include the following:
+```bash
+BEARER_TOKEN=[your PredictHq bearer-token here]
+ACCESS_TOKEN=[your PredictHq access-token here]
+ACCESS_TOKEN_SECRET=[your PredictHq access-token-secret here]
+API_KEY=[your PredictHq API-key here]
+BEARER_TOKEN_EB=[your EventBrite bearer-token-EB here]
+BEARER_TOKEN_LE=[your EventBrite bearer-token-LE here]
+```
+Once the above is done the API key will automatically be used in pulling the events from PredictHQ and EventBrite.
 
 ## Known Bugs
 
-* None at this point
+* We have experimental branches for Facebook & Twitter APIs that are not functional due to authentification errors.  
+* In the UI, when the height of the viewport changes size, the event result div superimposes onto the blue form div.
+* There is overflow text for the results of the PredictHQ API, so there is currently a scroll bar at the bottom of the column to account for that.
+* The Eventbrite events have to manually updated becasue the API doesn't allow for dynamic search capability.   
 
 ## License
 
