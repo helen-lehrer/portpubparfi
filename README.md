@@ -60,14 +60,9 @@ The API functionalities will *not* be available until you do the following:
 * Open the .env file in VS Code or the editor of your choice
 *  You will need to include the following:
 ```bash
-BEARER_TOKEN=[your PredictHq bearer-token here]
-ACCESS_TOKEN=[your PredictHq access-token here]
-ACCESS_TOKEN_SECRET=[your PredictHq access-token-secret here]
-API_KEY=[your PredictHq API-key here]
-BEARER_TOKEN_EB=[your EventBrite bearer-token-EB here]
-BEARER_TOKEN_LE=[your EventBrite bearer-token-LE here]
+BEARER_TOKEN_EB=[your EventBrite bearer token here]
+ACCESS_TOKEN_PHQ=[your PredictHQ access token here]
 ```
-Once the above is done the API key will automatically be used in pulling the events from PredictHQ and EventBrite.
 
 ## Known Bugs
 
