@@ -4,7 +4,7 @@
 
 ## Links
 
-* [Repository](https://github.com/nalundquist/portpubparfi)
+* [Deployed Site](https://portpubparfi.netlify.app/)
 
 ## Description
 
