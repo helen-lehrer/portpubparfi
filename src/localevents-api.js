@@ -6,7 +6,7 @@ export default class Localevents {
 
   request.open('GET', `https://api.predicthq.com/v1/events/?place.scope=PDX&active.gte=2022-09-14&active.lte=2022-10-31&sort=rank&category=${category}`);
 
-  request.setRequestHeader('Authorization', 'Bearer ' + `${process.env.ACCESS_TOKEN_PHQ}`);
+  request.setRequestHeader('Authorization', 'Bearer ' + `EvfZ41vIcrqtBR5qtnOCnF4TBUHWrMcF_7zG_Jt8`);
 
   request.addEventListener("loadend", function(){
     const response = JSON.parse(this.responseText);
