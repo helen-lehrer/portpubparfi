@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm run build && echo $CONTEXT > public/netlify-context.txt"
   publish = "dist"
 
 [build.environment]
