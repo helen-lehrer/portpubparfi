@@ -8,7 +8,7 @@
 
 ## Description
 
-A web application that searches the EventBrite API and the PredictHQ API for local events happening in the Portland area by category. The purpose of this project was to explore using social media APIs. 
+A web application that searches the EventBrite API and the PredictHQ API for local events happening in the Portland area by category. The purpose of this project was to explore using APIs in a Node.js and Webpack application. 
 
 
 ## Features
