@@ -24,3 +24,5 @@ jobs:
           production-deploy: true
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          BEARER_TOKEN_EB: ${{ secrets.BEARER_TOKEN_EB }}
+          ACCESS_TOKEN_PHQ: ${{ secrets.ACCESS_TOKEN_PHQ }}
